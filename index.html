@@ -7,8 +7,146 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
   </head>
-  <body>
-    
-    <script src="./script.js"></script>
+  <body class="body">
+    <header class="header">
+      <img
+        src="./images/header_logo.svg"
+        alt="логотип"
+        class="header__logo"
+      /><span class="header__line"></span>
+    </header>
+    <section class="profile">
+      <img
+        src="./images/profile__avatar.png"
+        alt="аватарка"
+        class="profile__avatar"
+      />
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <p class="profile__description">Исследователь океана</p>
+        <button class="profile__edit-button hover">
+          <img
+            src="./images/edit-button-icon.png"
+            alt="иконка"
+            class="profile__edit-button-icon"
+          />
+        </button>
+      </div>
+      <button class="profile__add-button hover">
+        <img
+          src="./images/add-button-icon.svg"
+          alt="иконка"
+          class="profile__add-button-icon"
+        />
+      </button>
+    </section>
+    <section class="elements">
+      <div class="element">
+        <img
+          src="./images/kirill-pershin-1088404-unsplash.jpg"
+          alt="картинка древнего храма"
+          class="element__image"
+        />
+        <div class="element__info-container">
+          <p class="element__title">Карачаевск</p>
+          <button class="element__like-button hover">
+            <img
+              src="./images/like-button-icon.svg"
+              alt=""
+              class="element__like-button-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          src="./images/kirill-pershin-1404681-unsplash.png"
+          alt="картинка древнего храма"
+          class="element__image"
+        />
+        <div class="element__info-container">
+          <p class="element__title">Гора Эльбрус</p>
+          <button class="element__like-button hover">
+            <img
+              src="./images/like-button-icon.svg"
+              alt=""
+              class="element__like-button-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          src="./images/kirill-pershin-1556355-unsplash.png"
+          alt="картинка древнего храма"
+          class="element__image"
+        />
+        <div class="element__info-container">
+          <p class="element__title">Домбай</p>
+          <button class="element__like-button hover">
+            <img
+              src="./images/like-button-icon.svg"
+              alt=""
+              class="element__like-button-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          src="./images/kirill-pershin-1404681-unsplash.png"
+          alt="картинка древнего храма"
+          class="element__image"
+        />
+        <div class="element__info-container">
+          <p class="element__title">Гора Эльбрус</p>
+          <button class="element__like-button hover">
+            <img
+              src="./images/like-button-icon.svg"
+              alt=""
+              class="element__like-button-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          src="./images/kirill-pershin-1556355-unsplash.png"
+          alt="картинка древнего храма"
+          class="element__image"
+        />
+        <div class="element__info-container">
+          <p class="element__title">Домбай</p>
+          <button class="element__like-button hover">
+            <img
+              src="./images/like-button-icon.svg"
+              alt=""
+              class="element__like-button-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          src="./images/kirill-pershin-1088404-unsplash.jpg"
+          alt="картинка древнего храма"
+          class="element__image"
+        />
+        <div class="element__info-container">
+          <p class="element__title">Карачаево-Черкессия</p>
+          <button class="element__like-button hover">
+            <img
+              src="./images/like-button-icon.svg"
+              alt=""
+              class="element__like-button-icon"
+            />
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <script src="./index.js"></script>
   </body>
 </html>
