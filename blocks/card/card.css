@@ -1,0 +1,14 @@
+.card {
+  width: 100%;
+  max-width: 282px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 769px) {
+  .card {
+    max-width: none;
+  }
+}

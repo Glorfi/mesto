@@ -1,0 +1,11 @@
+.profile__edit-button {
+  margin-left: 18px;
+  grid-column: 2;
+  grid-row: 1;
+  width: 24px;
+  max-height: 24px;
+  background: transparent;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}

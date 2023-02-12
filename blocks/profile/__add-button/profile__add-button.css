@@ -1,0 +1,22 @@
+.profile__add-button {
+  grid-column: 3;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 150px;
+  min-height: 50px;
+  max-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+@media screen and (max-width: 769px) {
+  .profile__add-button {
+    margin-top: 26px;
+    width: 100%;
+  }
+}
