@@ -3,7 +3,7 @@
 
 @import url(../blocks/body/body.css);
 @import url(../blocks/opacity/opacity.css);
-@import url(../blocks/opacity/opacity_like/opacity_like.css);
+@import url(../blocks/opacity-like/opacity-like.css);
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__image/card__image.css);
