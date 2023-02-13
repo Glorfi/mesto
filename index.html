@@ -9,138 +9,152 @@
   </head>
   <body class="body">
     <header class="header">
-      <img
-        src="./images/header_logo.svg"
-        alt="логотип"
-        class="header__logo"
-      /><span class="header__line"></span>
+      <img src="./images/header_logo.svg" alt="логотип" class="header__logo" />
     </header>
-    <section class="profile">
-      <img
-        src="./images/profile__avatar.png"
-        alt="аватарка"
-        class="profile__avatar"
-      />
-      <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <p class="profile__description">Исследователь океана</p>
-        <button class="profile__edit-button opacity">
-          <img
-            src="./images/edit-button-icon.png"
-            alt="иконка"
-            class="profile__edit-button-icon"
-          />
-        </button>
-      </div>
-      <button class="profile__add-button opacity">
+    <main>
+      <section class="profile">
         <img
-          src="./images/add-button-icon.svg"
-          alt="иконка"
-          class="profile__add-button-icon"
+          src="./images/profile__avatar.png"
+          alt="аватарка"
+          class="profile__avatar"
         />
-      </button>
-    </section>
-    <section class="cards">
-      <div class="card">
-        <img
-          src="./images/Tatev.jpg"
-          alt="картинка древнего храма"
-          class="card__image"
-        />
-        <div class="card__info-container">
-          <p class="card__title">Татев</p>
-          <button class="card__like-button opacity"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="./images/Sortavala.JPG"
-          alt="картинка древнего храма"
-          class="card__image"
-        />
-        <div class="card__info-container">
-          <p class="card__title">Сортавала</p>
-          <button class="card__like-button opacity"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="./images/shepelev light house.JPG"
-          alt="картинка древнего храма"
-          class="card__image"
-        />
-        <div class="card__info-container">
-          <p class="card__title">Шепелевский Маяк</p>
-          <button class="card__like-button opacity"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="./images/chegem.JPG"
-          alt="картинка древнего храма"
-          class="card__image"
-        />
-        <div class="card__info-container">
-          <p class="card__title">Чегем</p>
-          <button class="card__like-button opacity"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="./images/Barents Sea.JPG"
-          alt="картинка древнего храма"
-          class="card__image"
-        />
-        <div class="card__info-container">
-          <p class="card__title">Баренцево Море</p>
-          <button class="card__like-button opacity"></button>
-        </div>
-      </div>
-      <div class="card">
-        <img
-          src="./images/kandalaksha.JPG"
-          alt="картинка древнего храма"
-          class="card__image"
-        />
-        <div class="card__info-container">
-          <p class="card__title">Кандалакша</p>
-          <button class="card__like-button opacity"></button>
-        </div>
-      </div>
-    </section>
-    <div class="popup">
-      <div class="popup__container">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form action="" class="popup__form">
-          <input
-            type="text"
-            name=""
-            id=""
-            class="popup__name"
-            placeholder="Имя"
-            value="Жак-Ив Кусто"
-          />
-          <input
-            type="text"
-            name=""
-            id=""
-            class="popup__about"
-            placeholder="О себе"
-            value="Исследователь океана"
-          />
-          <button type="submit" class="popup__button-save opacity">
-            Сохранить
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__description">Исследователь океана</p>
+          <button class="profile__edit-button opacity" type="button">
+            <img
+              src="./images/edit-button-icon.png"
+              alt="иконка"
+              class="profile__edit-button-icon"
+            />
           </button>
-        </form>
-        <button class="popup__button-close">
+        </div>
+        <button class="profile__add-button opacity" type="button">
           <img
-            src="./images/close-button-icon.svg"
-            alt=""
-            class="popup__button-close-image opacity"
+            src="./images/add-button-icon.svg"
+            alt="иконка"
+            class="profile__add-button-icon"
           />
         </button>
+      </section>
+      <section class="cards">
+        <article class="card">
+          <img
+            src="./images/Tatev.jpg"
+            alt="скамейка на склоне горы"
+            class="card__image"
+          />
+          <div class="card__info-container">
+            <h3 class="card__title">Татев</h3>
+            <button
+              class="card__like-button opacity_like"
+              type="button"
+            ></button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="./images/Sortavala.JPG"
+            alt="пирамидка камней на склоне"
+            class="card__image"
+          />
+          <div class="card__info-container">
+            <h3 class="card__title">Сортавала</h3>
+            <button
+              class="card__like-button opacity_like"
+              type="button"
+            ></button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="./images/shepelev_light_house.JPG"
+            alt="маяк в заливе"
+            class="card__image"
+          />
+          <div class="card__info-container">
+            <h3 class="card__title">Шепелевский Маяк</h3>
+            <button
+              class="card__like-button opacity_like"
+              type="button"
+            ></button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="./images/chegem.JPG"
+            alt="ущелье горной реки зимой"
+            class="card__image"
+          />
+          <div class="card__info-container">
+            <h3 class="card__title">Чегем</h3>
+            <button
+              class="card__like-button opacity_like"
+              type="button"
+            ></button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="./images/barents_sea.JPG"
+            alt="замерзший водопад"
+            class="card__image"
+          />
+          <div class="card__info-container">
+            <h3 class="card__title">Баренцево Море</h3>
+            <button
+              class="card__like-button opacity_like"
+              type="button"
+            ></button>
+          </div>
+        </article>
+        <article class="card">
+          <img
+            src="./images/kandalaksha.JPG"
+            alt="зимний лес с видом на Белое Море"
+            class="card__image"
+          />
+          <div class="card__info-container">
+            <p class="card__title">Кандалакша</p>
+            <button
+              class="card__like-button opacity_like"
+              type="button"
+            ></button>
+          </div>
+        </article>
+      </section>
+      <div class="popup">
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form action="none" class="popup__form" name="edit-profile-form">
+            <input
+              type="text"
+              name="user-name"
+              id="edit-profile-user-name"
+              class="popup__input popup__input_name"
+              placeholder="Имя"
+              value=""
+            />
+            <input
+              type="text"
+              name="user-about"
+              id="edit-profile-user-about"
+              class="popup__input popup__input_about"
+              placeholder="О себе"
+              value=""
+            />
+            <button type="submit" class="popup__button-save">Сохранить</button>
+          </form>
+          <button class="popup__button-close" type="button">
+            <img
+              src="./images/close-button-icon.svg"
+              alt="крестик закрытия"
+              class="popup__button-close-image opacity"
+            />
+          </button>
+        </div>
       </div>
-    </div>
+    </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
