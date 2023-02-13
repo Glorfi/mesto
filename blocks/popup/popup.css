@@ -7,11 +7,9 @@
   height: 100vh;
   display: none;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  /* Оставил как и было изначально
+  Пожалуйста обратите внимание что высота экрана в отладчике по умолчанию
+  не совпадает с высотой экрана в макете */
 }
-@media screen and (max-width: 426px) {
-  .popup {
-    padding-top: 123px;
-    align-items: flex-start;
-  }
-}
+

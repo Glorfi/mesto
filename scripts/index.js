@@ -8,10 +8,9 @@ let FormElement = document.querySelector(".popup__form");
 let NameInput = document.querySelector(".popup__input_name");
 let AboutInput = document.querySelector(".popup__input_about");
 
-NameInput.value = UserName.innerText;
-AboutInput.value = UserDescription.innerText;
-
 function openPopUp(popup) {
+  NameInput.value = UserName.innerText;
+  AboutInput.value = UserDescription.innerText;
   popup.classList.add("popup_opened");
 }
 function closePopUp(popup) {
