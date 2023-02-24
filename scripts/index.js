@@ -36,6 +36,21 @@ initialCards.forEach(function (item) {
   cardsContainer.append(card);
 });
 
+const LikeButton = document.querySelectorAll(".card__like-button");
+LikeButton.forEach((item) => {
+  item.addEventListener("click", function () {
+    toggleLike(item);
+  });
+});
+
+const deleteButton = document.querySelectorAll(".card__delete-button");
+deleteButton.forEach((item) => {
+  const CardItem = item.closest(".card");
+  item.addEventListener("click", () => {
+    CardItem.remove();
+  });
+});
+
 const ProfilePopup = document.querySelector(".popup");
 const EditProfileButton = document.querySelector(".profile__edit-button");
 const CloseProfileButton = document.querySelector(".popup__button-close");
@@ -44,13 +59,6 @@ const UserDescription = document.querySelector(".profile__description");
 const FormElement = document.querySelector(".popup__form");
 const NameInput = document.querySelector(".popup__input_name");
 const AboutInput = document.querySelector(".popup__input_about");
-
-const LikeButton = document.querySelectorAll(".card__like-button");
-LikeButton.forEach((item) => {
-  item.addEventListener("click", function () {
-    toggleLike(item);
-  });
-});
 
 function openPopUp(popup) {
   NameInput.value = UserName.innerText;
@@ -63,6 +71,10 @@ function closePopUp(popup) {
 
 function toggleLike(like) {
   like.classList.toggle("card__like-button_active");
+}
+
+function deleteCard(del) {
+  del.remove();
 }
 
 EditProfileButton.addEventListener("click", function () {
