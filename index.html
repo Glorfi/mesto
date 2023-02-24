@@ -38,7 +38,7 @@
         </button>
       </section>
       <section class="cards">
-        <article aria-label="карточка" class="card">
+        <!-- <article aria-label="карточка" class="card">
           <img
             src="./images/Tatev.jpg"
             alt="скамейка на склоне горы"
@@ -121,7 +121,7 @@
               type="button"
             ></button>
           </div>
-        </article>
+        </article> -->
       </section>
       <div class="popup">
         <div class="popup__container">
@@ -158,6 +158,19 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
+    <template id="cardTemplate">
+      <article aria-label="карточка" class="card">
+        <img
+          src="./images/kandalaksha.JPG"
+          alt="зимний лес с видом на Белое Море"
+          class="card__image"
+        />
+        <div class="card__info-container">
+          <p class="card__title">Кандалакша</p>
+          <button class="card__like-button opacity-like" type="button"></button>
+        </div>
+      </article>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
