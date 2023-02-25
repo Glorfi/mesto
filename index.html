@@ -123,7 +123,7 @@
           </div>
         </article> -->
       </section>
-      <div class="popup">
+      <div class="popup popup_edit-profile">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <form action="none" class="popup__form" name="edit-profile-form">
@@ -145,6 +145,57 @@
             />
             <button type="submit" class="popup__button-save">Сохранить</button>
           </form>
+          <button class="popup__button-close" type="button">
+            <img
+              src="./images/close-button-icon.svg"
+              alt="крестик закрытия"
+              class="popup__button-close-image opacity"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="popup popup_add-card">
+        <div class="popup__container">
+          <h2 class="popup__title">Новое место</h2>
+          <form
+            action="none"
+            class="popup__form popup__form_create"
+            name="add-card-form"
+          >
+            <input
+              type="text"
+              name="user-name"
+              id="new-card-title"
+              class="popup__input popup__input_card-title"
+              placeholder="Название"
+              value=""
+            />
+            <input
+              type="text"
+              name="user-about"
+              id="new-card-link"
+              class="popup__input popup__input_card-link"
+              placeholder="Ссылка на картинку"
+              value=""
+            />
+            <button
+              type="submit"
+              class="popup__button-save popup__button-save_create"
+            >
+              Создать
+            </button>
+          </form>
+          <button class="popup__button-close" type="button">
+            <img
+              src="./images/close-button-icon.svg"
+              alt="крестик закрытия"
+              class="popup__button-close-image opacity"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="popup popup_enlarge-image">
+        <div class="popup__container">
           <button class="popup__button-close" type="button">
             <img
               src="./images/close-button-icon.svg"
