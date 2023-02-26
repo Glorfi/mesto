@@ -1,27 +1,27 @@
 const initialCards = [
   {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    name: "Татев",
+    link: "./images/Tatev.jpg",
   },
   {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    name: "Сортавала",
+    link: "./images/Sortavala.JPG",
   },
   {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    name: "Шепелевский Маяк",
+    link: "./images/shepelev_light_house.JPG",
   },
   {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    name: "Чегем",
+    link: "./images/chegem.JPG",
   },
   {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    name: "Баренцево Море",
+    link: "./images/barents_sea.JPG",
   },
   {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    name: "Кандалакша",
+    link: "./images/kandalaksha.JPG",
   },
 ];
 
@@ -33,18 +33,20 @@ initialCards.forEach(function (item) {
   const cardImage = card.querySelector(".card__image");
   cardTitle.textContent = item.name;
   cardImage.setAttribute("src", item.link);
+  cardImage.setAttribute("alt", `Картинка ${item.name}`);
   cardsContainer.append(card);
 });
 
-const LikeButton = document.querySelectorAll(".card__like-button");
-LikeButton.forEach((item) => {
+const LikeButtons = document.querySelectorAll(".card__like-button");
+LikeButtons.forEach((item) => {
   item.addEventListener("click", function () {
     toggleLike(item);
   });
 });
 
-const deleteButton = document.querySelectorAll(".card__delete-button");
-deleteButton.forEach((item) => {
+const deleteButtons = document.querySelectorAll(".card__delete-button");
+
+deleteButtons.forEach((item) => {
   const CardItem = item.closest(".card");
   item.addEventListener("click", () => {
     CardItem.remove();
@@ -59,6 +61,7 @@ const UserDescription = document.querySelector(".profile__description");
 const FormElement = document.querySelector(".popup__form");
 const NameInput = document.querySelector(".popup__input_name");
 const AboutInput = document.querySelector(".popup__input_about");
+const PopUpContainer = document.querySelectorAll(".popup__container");
 
 function openPopUp(popup) {
   NameInput.value = UserName.innerText;
@@ -111,6 +114,7 @@ function addNewCard(evt) {
   const cardImage = card.querySelector(".card__image");
   cardTitle.textContent = CardTitleInput.value;
   cardImage.setAttribute("src", CardLinkInput.value);
+  cardImage.setAttribute("alt", `Картинка ${CardTitleInput.value}`);
   cardsContainer.prepend(card);
   CardTitleInput.value = "";
   CardLinkInput.value = "";
@@ -123,10 +127,30 @@ function addNewCard(evt) {
     const CardItem = deleteButton.closest(".card");
     CardItem.remove();
   });
+  const CardImage = document.querySelector(".card__image");
+  CardImage.addEventListener("click", function () {
+    openImage(CardImage);
+  });
   closePopUp(AddCardPopup);
 }
 
 FormAddCard.addEventListener("submit", addNewCard);
 
 const ImagePopUp = document.querySelector(".popup_enlarge-image");
-console.log(ImagePopUp);
+const CardImage = document.querySelectorAll(".card__image");
+
+function openImage(CardImage) {
+  openPopUp(ImagePopUp);
+  const ImagePopUpTitle = document.querySelector(".popup__imagename");
+  const ActiveImage = CardImage.closest(".card__image");
+  const ActiveCard = CardImage.closest(".card");
+  const ActiveCardTitle = ActiveCard.querySelector(".card__title");
+  const LargeImage = document.querySelector(".popup__image");
+  LargeImage.src = ActiveImage.src;
+  ImagePopUpTitle.textContent = ActiveCardTitle.textContent;
+}
+CardImage.forEach((item) => {
+  item.addEventListener("click", function () {
+    openImage(item);
+  });
+});
