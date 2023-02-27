@@ -27,31 +27,20 @@ const initialCards = [
 
 const cardsContainer = document.querySelector(".cards");
 
-initialCards.forEach(function (item) {
-  const card = document.querySelector("#cardTemplate").content.cloneNode(true);
+function createInitialCard(item) {
+  const card = document.querySelector("#cardTemplate").content.cloneNode(true); 
+  // Эти переменные должны лежать внутри функции, иначе
+  // когда мы применим эту функцию к массиву будет отрисована только последняя карточка
   const cardTitle = card.querySelector(".card__title");
   const cardImage = card.querySelector(".card__image");
   cardTitle.textContent = item.name;
   cardImage.setAttribute("src", item.link);
   cardImage.setAttribute("alt", `Картинка ${item.name}`);
   cardsContainer.append(card);
-});
+}
 
-const LikeButtons = document.querySelectorAll(".card__like-button");
-LikeButtons.forEach((item) => {
-  item.addEventListener("click", function () {
-    toggleLike(item);
-  });
-});
 
-const deleteButtons = document.querySelectorAll(".card__delete-button");
-
-deleteButtons.forEach((item) => {
-  const CardItem = item.closest(".card");
-  item.addEventListener("click", () => {
-    CardItem.remove();
-  });
-});
+initialCards.forEach(createInitialCard);
 
 const ProfilePopup = document.querySelector(".popup_edit-profile");
 const EditProfileButton = document.querySelector(".profile__edit-button");
@@ -61,7 +50,21 @@ const UserDescription = document.querySelector(".profile__description");
 const FormElement = document.querySelector(".popup__form");
 const NameInput = document.querySelector(".popup__input_name");
 const AboutInput = document.querySelector(".popup__input_about");
-const PopUpContainer = document.querySelectorAll(".popup__container");
+const likeButtons = document.querySelectorAll(".card__like-button");
+const deleteButtons = document.querySelectorAll(".card__delete-button");
+
+likeButtons.forEach((item) => {
+  item.addEventListener("click", function () {
+    toggleLike(item);
+  });
+});
+
+deleteButtons.forEach((item) => {
+  const CardItem = item.closest(".card");
+  item.addEventListener("click", () => {
+    CardItem.remove();
+  });
+});
 
 function openPopUp(popup) {
   NameInput.value = UserName.innerText;
