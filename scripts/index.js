@@ -1,55 +1,5 @@
-const initialCards = [
-  {
-    name: "Татев",
-    link: "./images/Tatev.jpg",
-  },
-  {
-    name: "Сортавала",
-    link: "./images/Sortavala.JPG",
-  },
-  {
-    name: "Шепелевский Маяк",
-    link: "./images/shepelev_light_house.JPG",
-  },
-  {
-    name: "Чегем",
-    link: "./images/chegem.JPG",
-  },
-  {
-    name: "Баренцево Море",
-    link: "./images/barents_sea.JPG",
-  },
-  {
-    name: "Кандалакша",
-    link: "./images/kandalaksha.JPG",
-  },
-];
-
 const cardsContainer = document.querySelector(".cards");
-
-function createInitialCard(item) {
-  const card = document.querySelector("#cardTemplate").content.cloneNode(true);
-  // Эти переменные должны лежать внутри функции, если их вытащить то
-  // когда мы применим эту функцию к массиву будет отрисована только последняя карточка
-  const cardItem = card.querySelector(".card");
-  const cardTitle = card.querySelector(".card__title");
-  const cardImage = card.querySelector(".card__image");
-  const likeButton = card.querySelector(".card__like-button");
-  const deleteButton = card.querySelector(".card__delete-button");
-  cardTitle.textContent = item.name;
-  cardImage.setAttribute("src", item.link);
-  cardImage.setAttribute("alt", `Картинка ${item.name}`);
-  cardsContainer.append(card);
-  // использование метода prepend загрузит карточки в реверсивном порядке относительно массива
-  likeButton.addEventListener("click", () => {
-    toggleLike(likeButton);
-  });
-  deleteButton.addEventListener("click", () => {
-    cardItem.remove();
-  });
-}
-
-initialCards.forEach(createInitialCard);
+const card = document.querySelector("#cardTemplate");
 
 const profilePopup = document.querySelector(".popup_edit-profile");
 const editProfileButton = document.querySelector(".profile__edit-button");
@@ -68,7 +18,8 @@ const cardLinkInput = document.querySelector(".popup__input_card-link");
 const formAddCard = document.querySelector(".popup__form_create");
 
 const imagePopUp = document.querySelector(".popup_enlarge-image");
-const cardImage = document.querySelectorAll(".card__image");
+const imagePopUpTitle = document.querySelector(".popup__imagename");
+const LargeImage = document.querySelector(".popup__image");
 
 function openProfilePopUp(popup) {
   nameInput.value = userName.textContent;
@@ -93,62 +44,68 @@ function submitProfileEditForm(evt) {
   closePopUp(profilePopup);
 }
 
-function addNewCard(evt) {
-  evt.preventDefault();
-  const card = document.querySelector("#cardTemplate").content.cloneNode(true);
-  const cardTitle = card.querySelector(".card__title");
-  const cardImage = card.querySelector(".card__image");
-  const likeButton = card.querySelector(".card__like-button");
-  const deleteButton = card.querySelector(".card__delete-button");
-  cardTitle.textContent = cardTitleInput.value;
-  cardImage.setAttribute("src", cardLinkInput.value);
-  cardImage.setAttribute("alt", `Картинка ${cardTitleInput.value}`);
-  cardsContainer.prepend(card);
-  cardTitleInput.value = "";
-  cardLinkInput.value = "";
-  likeButton.addEventListener("click", function () {
-    toggleLike(likeButton);
-  });
-  deleteButton.addEventListener("click", function () {
-    const cardItem = deleteButton.closest(".card");
-    cardItem.remove();
-  });
-  cardImage.addEventListener("click", function () {
-    openImage(cardImage);
-  });
-  closePopUp(addCardPopup);
-}
-
 function openImage(cardImage) {
   openPopUp(imagePopUp);
-  const ImagePopUpTitle = document.querySelector(".popup__imagename");
-  const ActiveImage = cardImage.closest(".card__image");
-  const ActiveCard = cardImage.closest(".card");
-  const ActiveCardTitle = ActiveCard.querySelector(".card__title");
-  const LargeImage = document.querySelector(".popup__image");
-  LargeImage.src = ActiveImage.src;
-  ImagePopUpTitle.textContent = ActiveCardTitle.textContent;
+  const activeImage = cardImage.closest(".card__image");
+  const activeCard = cardImage.closest(".card");
+  const activeCardTitle = activeCard.querySelector(".card__title");
+  LargeImage.src = activeImage.src;
+  imagePopUpTitle.textContent = activeCardTitle.textContent;
+}
+
+function createCard(name, link) {
+  const newCard = card.content.cloneNode(true);
+  const cardItem = newCard.querySelector(".card");
+  const cardTitle = newCard.querySelector(".card__title");
+  const cardImage = newCard.querySelector(".card__image");
+  const likeButton = newCard.querySelector(".card__like-button");
+  const deleteButton = newCard.querySelector(".card__delete-button");
+  cardTitle.textContent = name;
+  cardImage.src = link;
+  cardImage.alt = `Картинка ${name}`;
+  likeButton.addEventListener("click", () => {
+    toggleLike(likeButton);
+  });
+  deleteButton.addEventListener("click", () => {
+    cardItem.remove();
+  });
+  cardImage.addEventListener("click", () => {
+    openImage(cardImage);
+  });
+  return newCard;
+}
+
+function addInitialCards(item) {
+  const name = item.name;
+  const link = item.link;
+  const newCard = createCard(name, link);
+  cardsContainer.append(newCard);
+}
+
+function addNewCard(evt) {
+  evt.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardLinkInput.value;
+  const newCard = createCard(name, link);
+  cardsContainer.prepend(newCard);
+  closePopUp(addCardPopup);
 }
 
 closeButtons.forEach((item) => {
   const PopUp = item.closest(".popup");
-  item.addEventListener("click", function () {
+  item.addEventListener("click", () => {
     closePopUp(PopUp);
   });
 });
 
-editProfileButton.addEventListener("click", function () {
+editProfileButton.addEventListener("click", () => {
   openProfilePopUp(profilePopup);
 });
 profileEditForm.addEventListener("submit", submitProfileEditForm);
 
-addCardButton.addEventListener("click", function () {
+addCardButton.addEventListener("click", () => {
   openPopUp(addCardPopup);
 });
-formAddCard.addEventListener("submit", addNewCard);
 
-cardImage.forEach((item) => {
-  item.addEventListener("click", function () {
-    openImage(item);
-  });
-});
+initialCards.forEach(addInitialCards);
+formAddCard.addEventListener("submit", addNewCard);
