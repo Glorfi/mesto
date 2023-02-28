@@ -88,6 +88,8 @@ function addNewCard(evt) {
   const link = cardLinkInput.value;
   const newCard = createCard(name, link);
   cardsContainer.prepend(newCard);
+  cardTitleInput.value = '';
+  cardLinkInput.value = '';
   closePopUp(addCardPopup);
 }
 
