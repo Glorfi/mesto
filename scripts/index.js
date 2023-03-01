@@ -88,15 +88,15 @@ function addNewCard(evt) {
   const link = cardLinkInput.value;
   const newCard = createCard(name, link);
   cardsContainer.prepend(newCard);
-  cardTitleInput.value = '';
-  cardLinkInput.value = '';
+  cardTitleInput.value = "";
+  cardLinkInput.value = "";
   closePopUp(addCardPopup);
 }
 
 closeButtons.forEach((item) => {
-  const PopUp = item.closest(".popup");
+  const popUp = item.closest(".popup");
   item.addEventListener("click", () => {
-    closePopUp(PopUp);
+    closePopUp(popUp);
   });
 });
 
