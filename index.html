@@ -37,12 +37,15 @@
           />
         </button>
       </section>
-      <section class="cards">
-      </section>
+      <section class="cards"></section>
       <div class="popup popup_edit-profile">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form action="none" class="popup__form popup__form_edit-profile" name="edit-profile-form">
+          <form
+            action="none"
+            class="popup__form popup__form_edit-profile"
+            name="edit-profile-form"
+          >
             <input
               type="text"
               name="user-name"
@@ -112,11 +115,7 @@
       </div>
       <div class="popup popup_enlarge-image">
         <div class="popup__container popup__container_image">
-          <img
-            src=""
-            alt=""
-            class="popup__image"
-          />
+          <img src="" alt="" class="popup__image" />
           <h3 class="popup__imagename">Архыз</h3>
           <button class="popup__button-close" type="button">
             <img
@@ -147,5 +146,6 @@
     </template>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

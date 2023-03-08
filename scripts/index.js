@@ -1,6 +1,7 @@
 const cardsContainer = document.querySelector(".cards");
 const card = document.querySelector("#cardTemplate");
 
+const popUpOverlays = document.querySelectorAll(".popup");
 const profilePopup = document.querySelector(".popup_edit-profile");
 const editProfileButton = document.querySelector(".profile__edit-button");
 const closeButtons = document.querySelectorAll(".popup__button-close");
@@ -91,10 +92,17 @@ function addNewCard(evt) {
   closePopUp(addCardPopup);
 }
 
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openedPopUp = document.querySelector(".popup_opened");
+    closePopUp(openedPopUp);
+  }
+}
+
 closeButtons.forEach((item) => {
-  const PopUp = item.closest(".popup");
+  const popUp = item.closest(".popup");
   item.addEventListener("click", () => {
-    closePopUp(PopUp);
+    closePopUp(popUp);
   });
 });
 
@@ -109,3 +117,13 @@ addCardButton.addEventListener("click", () => {
 
 initialCards.forEach(addInitialCards);
 formAddCard.addEventListener("submit", addNewCard);
+
+popUpOverlays.forEach((popUp) => {
+  popUp.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      closePopUp(popUp);
+    }
+  });
+});
+
+document.addEventListener("keydown", handleEscapeKey);
