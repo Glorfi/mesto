@@ -22,11 +22,10 @@ const imagePopUp = document.querySelector(".popup_enlarge-image");
 const imagePopUpTitle = document.querySelector(".popup__imagename");
 const LargeImage = document.querySelector(".popup__image");
 
-function openProfilePopUp(popup) {
-  nameInput.value = userName.textContent;
-  aboutInput.value = userDescription.textContent;
-  popup.classList.add("popup_opened");
-}
+// function openProfilePopUp(popup) {
+//   setInitialUserValues(nameInput, aboutInput);
+//   popup.classList.add("popup_opened");
+// }
 function openPopUp(popup) {
   popup.classList.add("popup_opened");
 }
@@ -36,6 +35,10 @@ function closePopUp(popup) {
 
 function toggleLike(like) {
   like.classList.toggle("card__like-button_active");
+}
+function setInitialUserValues(userNameInput, userAboutInput) {
+  userNameInput.value = userName.textContent;
+  userAboutInput.value = userDescription.textContent;
 }
 
 function submitProfileEditForm(evt) {
@@ -90,6 +93,8 @@ function addNewCard(evt) {
   const newCard = createCard(name, link);
   cardsContainer.prepend(newCard);
   closePopUp(addCardPopup);
+  cardTitleInput.value = "";
+  cardLinkInput.value = "";
 }
 
 function handleEscapeKey(evt) {
@@ -99,6 +104,8 @@ function handleEscapeKey(evt) {
   }
 }
 
+setInitialUserValues(nameInput, aboutInput);
+
 closeButtons.forEach((item) => {
   const popUp = item.closest(".popup");
   item.addEventListener("click", () => {
@@ -107,9 +114,13 @@ closeButtons.forEach((item) => {
 });
 
 editProfileButton.addEventListener("click", () => {
-  openProfilePopUp(profilePopup);
+  openPopUp(profilePopup);
 });
-profileEditForm.addEventListener("submit", submitProfileEditForm);
+profileEditForm.addEventListener(
+  "submit",
+  submitProfileEditForm,
+  setInitialUserValues(nameInput, aboutInput)
+);
 
 addCardButton.addEventListener("click", () => {
   openPopUp(addCardPopup);

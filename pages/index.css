@@ -42,3 +42,25 @@
 @import url(../blocks/profile/__edit-button-icon/profile__edit-button-icon.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
+
+.popup__input-type-error {
+  opacity: 0;
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+}
+
+.popup__input-type-error_active {
+  opacity: 1;
+}
+.popup__input_error {
+  border-bottom: 1px solid #ff0000;
+}
+
+.popup__button-save_disabled {
+  background-color: unset;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
+}
