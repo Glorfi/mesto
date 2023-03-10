@@ -1,0 +1,6 @@
+.popup__input-container {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 30px);
+  max-height: 60px;
+  padding-top: 5px;
+}
