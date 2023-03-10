@@ -20,11 +20,16 @@
 @import url(../blocks/header/__logo/header__logo.css);
 
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__input-container/popup__input-container.css);
 @import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_error/popup__input_error.css);
+@import url(../blocks/popup/__input-type-error/popup__input-type-error.css);
+@import url(../blocks/popup/__input-type-error/_active/popup__input-type-error_active.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/_enlarge-image/popup_enlarge-image.css);
 @import url(../blocks/popup/__button-close/popup__button-close.css);
 @import url(../blocks/popup/__button-save/popup__button-save.css);
+@import url(../blocks/popup/__button-save/_disabled/popup__button-save_disabled.css);
 @import url(../blocks/popup/__button-close-image/popup__button-close-image.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container/_image/popup__container_image.css);
@@ -42,25 +47,3 @@
 @import url(../blocks/profile/__edit-button-icon/profile__edit-button-icon.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
-
-.popup__input-type-error {
-  opacity: 0;
-  margin-top: 5px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  color: #ff0000;
-}
-
-.popup__input-type-error_active {
-  opacity: 1;
-}
-.popup__input_error {
-  border-bottom: 1px solid #ff0000;
-}
-
-.popup__button-save_disabled {
-  background-color: unset;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.2);
-}
