@@ -8,13 +8,16 @@ const config = {
 };
 
 function setEventListeners(form, inputList, button, config) {
-  const {inputErrorClass, spanErrorTextClass } = config;
+  const { inputErrorClass, spanErrorTextClass, inactiveButtonClass } = config;
   inputList.forEach((input) => {
-    toggleButtonState(inputList, button);
+    toggleButtonState(inputList, button, inactiveButtonClass);
     input.addEventListener("input", function () {
       checkInputValidity(form, input, inputErrorClass, spanErrorTextClass);
-      toggleButtonState(inputList, button);
+      toggleButtonState(inputList, button, inactiveButtonClass);
     });
+  });
+  form.addEventListener("reset", () => {
+    disableSubmitButton(button, inactiveButtonClass);
   });
 }
 
@@ -68,21 +71,21 @@ function hasInvalidInput(inputList) {
   });
 }
 
-function toggleButtonState(inputList, button) {
+function toggleButtonState(inputList, button, inactiveButtonClass) {
   if (hasInvalidInput(inputList)) {
-    disableSubmitButton(button);
+    disableSubmitButton(button, inactiveButtonClass);
   } else {
-    enableSubmitButton(button);
+    enableSubmitButton(button, inactiveButtonClass);
   }
 }
 
-function disableSubmitButton(button) {
-  button.classList.add(config.inactiveButtonClass);
+function disableSubmitButton(button, inactiveButtonClass) {
+  button.classList.add(inactiveButtonClass);
   button.setAttribute("disabled", "true");
 }
 
-function enableSubmitButton(button) {
-  button.classList.remove(config.inactiveButtonClass);
+function enableSubmitButton(button, inactiveButtonClass) {
+  button.classList.remove(inactiveButtonClass);
   button.disabled = false;
 }
 

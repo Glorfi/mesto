@@ -88,12 +88,10 @@ function addNewCard(evt) {
   evt.preventDefault();
   const name = cardTitleInput.value;
   const link = cardLinkInput.value;
-  const button = formAddCard.querySelector(config.submitButtonSelector);
   const newCard = createCard(name, link);
   cardsContainer.prepend(newCard);
   formAddCard.reset();
   closePopUp(addCardPopup);
-  disableSubmitButton(button);
 }
 
 function handleEscapeKey(evt) {
@@ -131,7 +129,6 @@ formAddCard.addEventListener("submit", addNewCard);
 popUpOverlays.forEach((popUp) => {
   popUp.addEventListener("click", (evt) => {
     if (evt.target.classList.contains("popup")) {
-      console.log(evt.target);
       closePopUp(popUp);
     }
   });
